@@ -103,4 +103,13 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 500;
+    color: #747a7c;
+}
+
+.footer {
+    width: 1050px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.4;
 }
