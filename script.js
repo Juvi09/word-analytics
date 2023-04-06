@@ -2,10 +2,19 @@ const textareaEl = document.querySelector('.textarea');
 const charactersNumberEl = document.querySelector('.stat__number--characters');
 const twitterNumberEl = document.querySelector('.stat__number--twitter');
 const facebookNumberEl = document.querySelector('.stat__number--facebook');
-const wordNumberEl = document.querySelector('.stat__number--words');
+const wordsNumberEl = document.querySelector('.stat__number--words');
 
 textareaEl.addEventListener('input', function () {
+     // ! Input validation
+     if (textareaEl.value.includes('<script>')) {
+        alert("You can't use <script> in your text.");
+        textareaEl.value = textareaEl.value.replace('<script>', '');
+     }
     // ! Determine new number
+    let numberOfWords = textareaEl.value.split(' ').length;
+    if (textareaEl.value.length === 0){
+        numberOfWords = 0;
+    }
     const numberOfCharacters = textareaEl.value.length;
     const twitterCharactersLeft = 280 - numberOfCharacters;
     const facebookCharactersLeft = 2200 - numberOfCharacters;
@@ -23,6 +32,7 @@ textareaEl.addEventListener('input', function () {
         facebookNumberEl.classList.remove('stat__number--limit')
     }
     // ! set new number
+    wordsNumberEl.textContent = numberOfWords;
     charactersNumberEl.textContent = numberOfCharacters;
     twitterNumberEl.textContent = twitterCharactersLeft;
     facebookNumberEl.textContent = facebookCharactersLeft;
