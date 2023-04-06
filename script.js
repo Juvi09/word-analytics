@@ -8,8 +8,9 @@ textareaEl.addEventListener('input', function () {
     // ! Determine new number
     const numberOfCharacters = textareaEl.value.length;
     const twitterCharactersLeft = 280 - numberOfCharacters;
-
+    const facebookCharactersLeft = 2200 - numberOfCharacters;
     // ! set new number
     charactersNumberEl.textContent = numberOfCharacters;
     twitterNumberEl.textContent = twitterCharactersLeft;
+    facebookNumberEl.textContent = facebookCharactersLeft;
 });
